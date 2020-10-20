@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Author = require('../models/Author');
+const Author = require("../models/Author");
 const Cookbook = require("../models/Cookbook");
 // Write the route to list all authors
 router.get("/", (req, res) => {
@@ -31,7 +31,7 @@ router.put("/:name", (req, res) => {
 
 //Write a route to delete an author
 router.delete("/:id", (req, res) => {
-  Author.delete({ _id: req.params.id }).then((author) => {
+  Author.deleteOne({ _id: req.params.id }).then((author) => {
     res.json(author);
   });
 });
